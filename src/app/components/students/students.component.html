@@ -1,0 +1,46 @@
+<div class="card text-dark bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-primary my-2" routerLink="/students/form">crear</button>
+        <div class="alert alert-info" *ngIf="students?.length==0">
+            No hay alumnos en el sistema.
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Lugar de Nacimiento</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Cedula</th>
+                    <th>Telefono</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                    
+                </tr>
+            </thead> 
+            <tbody>
+                <tr *ngFor="let student of students ">
+                    <td>{{student.idStudent}}</td>
+                    <td>{{student.firstName | uppercase }}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.placeOfBirth}}</td>
+                    <td>{{student.birth | date: 'yyyy/MM/dd'}}</td>
+                    <td>{{student.numberCardId}}</td>
+                    <td>{{student.phone}}</td>  
+                    <td><button class="btn btn-secondary btn-sm" 
+                        [routerLink]="['/students/form',student.idStudent]">Editar</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="eliminar(student)">Elimniar</button>
+
+                    </td>
+                   
+                </tr>
+            </tbody>
+            
+            
+            </table>
+    </div>
+  </div>
+

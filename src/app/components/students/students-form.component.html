@@ -1,0 +1,78 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/students">volver</button>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="firstName">Nombre</label>
+            <input type="text" name="firstName" class="form-control" id="firstName" 
+            [(ngModel)]="student.firstName">
+            <div class="alert alert-danger" *ngIf="error?.firstName">
+                {{ error.firstName }}
+            </div>   
+        </div>
+        <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" name="lastName" class="form-control" id="lastName"
+            [(ngModel)]="student.lastName">
+            <div class="alert alert-danger" *ngIf="error?.lastName">
+                {{ error.lastName }}
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="placeOfBirth">Lugar de Nacimiento</label>
+            <input type="text" name="placeOfBirth" class="form-control" id="placeOfBirth"
+            [(ngModel)]="student.placeOfBirth">
+            <div class="alert alert-danger" *ngIf="error?.placeOfBirth">
+                {{ error.placeOfBirth }}
+            </div>
+            
+            
+        </div>
+        <div class="form-group">
+            <label for="birth">Fecha de Nacimiento</label>
+            <input type="date" name="birth" class="form-control" id="birth"
+            [(ngModel)]="student.birth">
+            <div class="alert alert-danger" *ngIf="error?.birth">
+                {{ error.birth }}
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="numberCardId">Numero de Cedula</label>
+            <input type="text" name="numberCardId" class="form-control" id="numberCardId"
+            [(ngModel)]="student.numberCardId">
+            <div class="alert alert-danger" *ngIf="error?.numberCardId">
+                {{ error.numberCardId }}
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="phone">Numero de Telefono</label>
+            <input type="text" name="phone" class="form-control" id="phone"
+            [(ngModel)]="student.phone">
+            <div class="alert alert-danger" *ngIf="error?.phone">
+                {{ error.phone }}
+            </div>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" id="email" 
+            [(ngModel)]="student.email">
+            <div class="alert alert-danger" *ngIf="error?.email">
+                {{ error.email }}
+            </div>
+            
+        </div> 
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" 
+            (click)="student.idStudent? editar(): crear()">
+            {{student.idStudent? 'Editar':'Crear'}}</button>
+        </div>
+    </form>
+
+</div>    

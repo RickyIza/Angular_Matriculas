@@ -1,0 +1,45 @@
+<div class="card text-dark bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-primary my-2" routerLink="/subjects/form">crear</button>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>NRC</th>
+                    <th>Profesor</th>
+                    <th>Horas</th>
+                    <th>Estado</th> 
+                    <th>Alumnos</th>  
+                    <th>Edtiar</th>   
+                    <th>Eliminar</th>   
+                    
+                </tr>
+            </thead> 
+            <tbody>
+                <tr *ngFor="let subject of subject ">
+                    <td>{{subject.id}}</td>
+                    <td>{{subject.name | uppercase }}</td>
+                    <td>{{subject.nrc}}</td>
+                    <td>{{subject.teacher}}</td>
+                    <td>{{subject.hours}}</td>
+                    <td>{{subject.status}}</td>
+                    <td><button class="btn btn-secondary btn-sm" 
+                        [routerLink]="['/subjects/add-student',subject.id]">Añadir</button>
+                    </td>
+                    <td><button class="btn btn-secondary btn-sm" 
+                        [routerLink]="['/subjects/form',subject.id]">Editar</button>
+                    </td>
+                    <td><button class="btn btn-danger" >Elimniar</button>
+
+                    </td>
+                   
+                </tr>
+            </tbody>
+            
+            
+            </table>
+    </div>
+  </div>
+
